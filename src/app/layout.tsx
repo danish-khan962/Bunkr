@@ -6,6 +6,8 @@ import ClientRenderingWrapper from "@/components/ClientRenderingWrapper";
 import Modal from "@/components/Modals/Modal";
 import RegisterModal from "@/components/Modals/RegisterModal";
 import ToasterProvider from "@/providers/ToasterProvider";
+import LoginModal from "@/components/Modals/LoginModal";
+import getCurrentUser from "@/actions/getCurrentUser";
 
 const font = Rubik({
   subsets: ["latin"]
@@ -16,7 +18,10 @@ export const metadata: Metadata = {
   description: "Bunkr is a brand new place rental plaform with AI capabilities to help you with.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+
+  const currentUser = await getCurrentUser();
+
   return (
     <html
       lang="en"
@@ -25,8 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col justify-between">
         <ClientRenderingWrapper>
           <ToasterProvider />
+          <LoginModal />
           <RegisterModal />
-          <Navbar />
+          <Navbar currentUser={currentUser} />
         </ClientRenderingWrapper>
         {children}
       </body>
