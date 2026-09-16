@@ -20,11 +20,11 @@ const Logo = () => {
                 alt="logo"
                 height={1000}
                 width={1000}
-                className="h-6 sm:h-7 md:h-8 w-auto"
+                className="h-5 sm:h-7 md:h-8 w-auto"
             />
-            <div className={`${LogoFont.className} font-extrabold text-xl sm:text-2xl md:text-3xl bg-linear-to-bl from-[#FC7D9B] to-[#F7418F] text-transparent bg-clip-text align-baseline`}>
+            {/* <div className={`${LogoFont.className} font-extrabold text-xl sm:text-2xl md:text-3xl bg-linear-to-bl from-[#FC7D9B] to-[#F7418F] text-transparent bg-clip-text align-baseline`}>
                 unkr
-            </div>
+            </div> */}
         </div>
     )
 }
